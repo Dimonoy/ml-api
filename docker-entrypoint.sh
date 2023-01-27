@@ -1,2 +1,2 @@
 #!/bin/sh
-python /app/run_server.py
+python /rest-api/app/run_server.py

@@ -14,13 +14,15 @@ from logging.handlers import RotatingFileHandler
 dill._dill._reverse_typemap['ClassType'] = type
 warnings.filterwarnings('ignore')
 
+APP_ROOT_PATH = pathlib.Path('/rest-api')
+
 LOG_FILE = 'app.log'
-LOG_FILE_PATH = pathlib.Path(LOG_FILE)
+LOG_FILE_PATH = APP_ROOT_PATH / 'app' / pathlib.Path(LOG_FILE)
 LOG_FILE_MAX_BYTES = 100_000
 LOG_FILE_BACKUP_COUNT = 10
 
 MODEL_FILE = 'logreg_pipeline.dill'
-MODEL_FILE_PATH = 'models' / pathlib.Path(MODEL_FILE)
+MODEL_FILE_PATH = APP_ROOT_PATH / 'app/models' / pathlib.Path(MODEL_FILE)
 
 HOST = '0.0.0.0'
 PORT = os.environ.get('PORT', 8180)
